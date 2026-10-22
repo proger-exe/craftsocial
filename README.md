@@ -1,7 +1,7 @@
 # CraftSocial
 
 <!-- portfolio-card:start -->
-[![sh3lby.code — нейтральная обложка](docs/portfolio/card.png)](docs/portfolio/card.svg)
+[![CraftSocial — Игровые меню и экономика. Данные — через CraftCore.](docs/portfolio/card.png)](docs/portfolio/card.svg)
 <!-- portfolio-card:end -->
 
 Purpur / Paper 1.21 plugin that brings a server's meta-game into the game: shops with inventory GUI, clans and parties with management menus, economy commands, quests, player text tags. The plugin is stateless: every action is validated by [CraftCore API](https://github.com/proger-exe/craftcore-api), responses are cached with short TTLs, and nothing touches the main thread while a request is in flight.
