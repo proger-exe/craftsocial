@@ -1,0 +1,68 @@
+# CraftSocial Plugin Configuration
+
+# API Configuration
+api:
+  base-url: "https://api.example.com"
+  timeout: 30 # seconds
+  retry:
+    enabled: true
+    max-attempts: 3
+    delay: 1000 # milliseconds
+    backoff-multiplier: 2.0
+  # Service auth — обязательно для запросов от имени системного аккаунта (X-Player-ID: 777000,
+  # напр. /admin/*). Пары client_id/client_secret регистрируются на сервере через
+  # переменную SERVICE_CREDENTIALS. Без секрета Authorization заголовок не отправляется.
+  service-auth:
+    client-id: "craftsocial"
+    client-secret: ""
+    token-refresh-buffer-seconds: 60
+
+# Cache Configuration
+cache:
+  enabled: true
+  ttl: 20 # seconds (10-30 recommended)
+  max-size: 1000 # maximum cache entries
+
+# Async Task Manager Configuration
+async:
+  thread-pool-size: 10 # number of threads for HTTP requests
+  queue-size: 100 # maximum queued tasks
+
+# Error Handling
+error-handling:
+  read-only-on-failure: true # enable read-only mode when CRM is unavailable
+  disable-economy-on-failure: true # disable economy operations when CRM is unavailable
+  disable-social-on-failure: true # disable social operations when CRM is unavailable
+  log-all-errors: true
+
+# Rate Limiting (additional to API rate limits)
+rate-limiting:
+  enabled: true
+  requests-per-second: 10 # per player
+  burst-size: 20
+
+# Features
+features:
+  player-management: true
+  economy: true
+  shops: true
+  clans: true
+  party: true
+
+# Shop Configuration
+shops:
+  default-item-price: 100 # Default price for items added from chest (in вайши)
+
+# Online rewards
+online-rewards:
+  enabled: true
+  min-reward: 10
+  max-reward: 30
+  multiplier-base: 1.0
+  multiplier-step: 0.5
+  afk-protection:
+    enabled: true
+    timeout-seconds: 300
+
+# Debug
+debug: false

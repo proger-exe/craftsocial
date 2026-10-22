@@ -1,0 +1,92 @@
+name: CraftSocial
+version: ${project.version}
+main: dev.sh3lby.craftsocial.CraftSocialPlugin
+api-version: 1.21
+author: sh3lby.code
+description: Social plugin for Purpur 1.21.8 with CraftCore integration
+
+
+depend: []
+
+softdepend: []
+
+commands:
+  craftsocial:
+    description: Main command for CraftSocial plugin
+    aliases: [js, jsocial]
+    usage: /<command> [reload|info]
+    permission: craftsocial.use
+    permission-message: You don't have permission to use this command.
+  
+  shop:
+    description: Shop management commands
+    aliases: [shops]
+    usage: /<command> [subcommand]
+    permission: craftsocial.use
+  
+  clan:
+    description: Clan management commands
+    aliases: [clans]
+    usage: /<command> [subcommand]
+    permission: craftsocial.use
+  
+  jsparty:
+    description: Party management commands
+    usage: /<command> [subcommand]
+    permission: craftsocial.use
+  
+  money:
+    description: Economy commands
+    aliases: [economy, eco, cash]
+    usage: /<command> [subcommand]
+    permission: craftsocial.use
+  
+  economy:
+    description: Economy commands (alias for money)
+    aliases: [eco, cash]
+    usage: /<command> [subcommand]
+    permission: craftsocial.use
+  
+  quest:
+    description: Quest commands
+    aliases: [quests]
+    usage: /<command> [subcommand]
+    permission: craftsocial.use
+
+  jshours:
+    description: CraftSocial hours test command
+    usage: /<command> [player|trigger [player]]
+    permission: craftsocial.admin
+
+  text:
+    description: Create colored TextDisplay in the world
+    usage: /<command> <color> <text>
+    permission: craftsocial.use
+
+  textremove:
+    description: Remove targeted TextDisplay or ArmorStand
+    aliases: [deltext, deldisplay]
+    usage: /<command>
+    permission: craftsocial.text.remove
+
+permissions:
+  craftsocial.*:
+    description: All CraftSocial permissions
+    default: op
+    children:
+      craftsocial.use: true
+      craftsocial.admin: true
+      craftsocial.reload: true
+      craftsocial.text.remove: true
+  craftsocial.use:
+    description: Use CraftSocial commands
+    default: true
+  craftsocial.admin:
+    description: Admin commands
+    default: op
+  craftsocial.reload:
+    description: Reload plugin configuration
+    default: op
+  craftsocial.text.remove:
+    description: Remove targeted TextDisplay or ArmorStand
+    default: op
